@@ -1,0 +1,69 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using static System.Runtime.InteropServices.JavaScript.JSType;
+
+namespace NemzetiForrasKod.CsodaSzarvas
+{
+    public class Dolog
+    {
+        private static string[] orban_sameszai = 
+        {
+            "Mészáros Lőrinc",
+            "Tiborcz István",
+            "Szíj László",
+            "Rogán Antal",
+            "Garancsi István",
+            "Felcsuti Zsolt",
+            "Matolcsy György",
+            "Matolcsy Ádám",
+            "Leisztinger Tamás",
+            "Orbán Győző",
+            "Jászai Gellért"
+        };
+
+        public required string Name { get; init; }
+
+        public bool El_Van_Baszva { get; private set; }
+
+        public bool Teljesen_El_Van_Baszva { get; private set; }
+
+        public void Elbasz()
+        {
+            this.El_Van_Baszva = true;
+        }
+
+        public void MegJobban_Elbasz()
+        {
+            if (!this.El_Van_Baszva)
+            {
+                this.Teljesen_El_Van_Baszva = true;
+            }
+        }
+
+        public void Kicsit_Javul()
+        {
+            if (Teljesen_El_Van_Baszva)
+            {
+                Teljesen_El_Van_Baszva = false;
+                return;
+            }
+
+            if (El_Van_Baszva) {
+                El_Van_Baszva = false;
+            }
+        }
+
+        public void Meg_Tobb_Penzt_Kilop()
+        {
+            Console.WriteLine($"{orban_sameszai[Random.Shared.Next(orban_sameszai.Length)]} vagyona tovább gyarapodik.");
+        }
+
+        public void Penzt_Kilop()
+        {
+            Console.WriteLine($"{orban_sameszai[Random.Shared.Next(orban_sameszai.Length)]} vagyona még tovább gyarapodik.");
+        }
+    }
+}
