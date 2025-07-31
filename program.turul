@@ -39,9 +39,27 @@ namespace NemzetiForrasKod
 
                 Hozzanyul(randomDolog);
 
+                Pride_Betiltasanak_Megprobalasa();
+
+                AsszonyVeres();
+
                 await Task.Delay(300);
 
                 Minden_Igyekezetunk_Ellenere_Neha_Valami_Megjavul();
+            }
+        }
+
+        static void Pride_Betiltasanak_Megprobalasa() {
+            if (Random.Shared.Next(100) > 90)
+            {
+                Console.WriteLine("A pride betiltás nem sikerült, de végig ez volt a mesterterv!");
+            }
+        }
+
+        static void AsszonyVeres() {
+            if (Random.Shared.Next(100) > 90)
+            {
+               Console.WriteLine("Csak átesett a vak komondoron!");
             }
         }
 
